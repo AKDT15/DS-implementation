@@ -70,14 +70,34 @@ def conversionInfixtoPostfix(stack,str):
 			while (not stack.is_empty() and stack.top() != '(' and checkForPrecedence(stack.top(),i) ):
 				newStr += stack.pop()
 			stack.push(i)
-	while not stack.is_empty:
+	while not stack.is_empty():
 		newStr += stack.pop()
 	
 	return newStr
 
 
+def reverseString(expression):
+	return expression[::-1]
+
+
+def reverseBraces(expression):
+	a = ''
+	expression = list(expression)
+	for i in expression:
+		if i == ')':
+			a += '('
+		elif i == '(':
+			a += ')' 
+		elif i == " "
+			pass
+		else:
+			a += i
+	return a
 
 str = "((A+B)*C-D)*E"
+str = reverseString(str)
+newStr = reverseBraces(str)
 stackObj = Stack()
-result = conversionInfixtoPostfix(stackObj,str)
+output = conversionInfixtoPostfix(stackObj,newStr)
+result = reverseString(output)
 print(result)
